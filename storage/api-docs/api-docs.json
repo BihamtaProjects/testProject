@@ -1,0 +1,1299 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Webinar ApplicationAPI",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/update_profile": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "User update profile",
+                "description": "User update profile",
+                "operationId": "update_profile",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "text"
+                                    },
+                                    "last_name": {
+                                        "type": "text"
+                                    },
+                                    "email": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "updated Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "updated Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/login_with_otp": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "User login with otp",
+                "description": "Login User Here",
+                "operationId": "login_with_otp",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "mobile_number",
+                                    "otp_code"
+                                ],
+                                "properties": {
+                                    "mobile_number": {
+                                        "type": "text"
+                                    },
+                                    "otp_code": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Login Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Login Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/send_sms_otp": {
+            "post": {
+                "tags": [
+                    "OTP"
+                ],
+                "summary": "send otp to the user",
+                "description": "send otp code to user",
+                "operationId": "auth_login",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "mobile_number"
+                                ],
+                                "properties": {
+                                    "mobile_number": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OTP sent Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/validate_sms_otp": {
+            "post": {
+                "tags": [
+                    "OTP"
+                ],
+                "summary": "validates otp code sent to the user",
+                "description": "send otp code to user",
+                "operationId": "validateOTPCode",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "mobile_number",
+                                    "otp_code"
+                                ],
+                                "properties": {
+                                    "mobile_number": {
+                                        "type": "number"
+                                    },
+                                    "otp_code": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OTP validated Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Register"
+                ],
+                "summary": "User Register",
+                "description": "User Register here",
+                "operationId": "Register",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "text"
+                                    },
+                                    "last_name": {
+                                        "type": "text"
+                                    },
+                                    "email": {
+                                        "type": "text"
+                                    },
+                                    "mobile_number": {
+                                        "type": "text"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Register Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Register Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/organizerRegister": {
+            "post": {
+                "tags": [
+                    "Register"
+                ],
+                "summary": "Organizer Register",
+                "description": "organizer Register here",
+                "operationId": "OrganizerRegister",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "password",
+                                    "is_company"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "text"
+                                    },
+                                    "last_name": {
+                                        "type": "text"
+                                    },
+                                    "email": {
+                                        "type": "text"
+                                    },
+                                    "mobile_number": {
+                                        "type": "text"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    },
+                                    "is_company": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Register Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Register Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "User Login",
+                "description": "Login User Here",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "email"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Login Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Login Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/login_with_mobile": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "User Login with mobile",
+                "description": "Login User Here",
+                "operationId": "LoginWithMobile",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "mobile_number",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "mobile_number": {
+                                        "type": "number"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Login Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Login Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/user/changePassword": {
+            "post": {
+                "tags": [
+                    "OTP"
+                ],
+                "summary": "change password with otp",
+                "description": "change pass word with otp here",
+                "operationId": "change password",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "mobile_number",
+                                    "otp_code",
+                                    "newPassword"
+                                ],
+                                "properties": {
+                                    "mobile_number": {
+                                        "type": "text"
+                                    },
+                                    "newPassword": {
+                                        "type": "text"
+                                    },
+                                    "otp_code": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "change password Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/user/addToCart": {
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "add covent to a user cart",
+                "description": "add covent to a user cart",
+                "operationId": "addCoventToCart",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "covent_id",
+                                    "count"
+                                ],
+                                "properties": {
+                                    "covent_id": {
+                                        "type": "text"
+                                    },
+                                    "count": {
+                                        "type": "integer"
+                                    },
+                                    "coupon_id": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/showCart": {
+            "get": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Get list of users cart",
+                "description": "return list of users cart",
+                "operationId": "getUsersCart",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/cartToInvoice": {
+            "get": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "invoice a user carts",
+                "description": "invoice a user carts",
+                "operationId": "cartToInvoice",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/deleteCart": {
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "delete from the users cart",
+                "description": "delete from the users cart",
+                "operationId": "deleteCart",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "cart_id"
+                                ],
+                                "properties": {
+                                    "cart_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/updateCart": {
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "update the users cart",
+                "description": "update the users cart",
+                "operationId": "updateCart",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "cart_id",
+                                    "count"
+                                ],
+                                "properties": {
+                                    "cart_id": {
+                                        "type": "integer"
+                                    },
+                                    "count": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/showInvoice": {
+            "post": {
+                "tags": [
+                    "Invoices"
+                ],
+                "summary": "show user invoices",
+                "description": "show user invoices",
+                "operationId": "show user invoice",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "number": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/selectedCovents": {
+            "post": {
+                "tags": [
+                    "selected"
+                ],
+                "summary": "return list of selected covents",
+                "description": "return list of selected covents in diffrent groups",
+                "operationId": "returnSelectedCovents",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "page_name"
+                                ],
+                                "properties": {
+                                    "page_name": {
+                                        "type": "text"
+                                    },
+                                    "session_id": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/covent": {
+            "post": {
+                "tags": [
+                    "covent"
+                ],
+                "summary": "return a specific Covent",
+                "description": "return a specific Covent",
+                "operationId": "returnspecificCovent",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "covent_slug"
+                                ],
+                                "properties": {
+                                    "covent_slug": {
+                                        "type": "text"
+                                    },
+                                    "session_id": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/allOrganizers": {
+            "get": {
+                "tags": [
+                    "organizers"
+                ],
+                "summary": "Get list of all organizers",
+                "description": "return list of all organizers",
+                "operationId": "getAllOrganizers",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/page": {
+            "post": {
+                "tags": [
+                    "Page"
+                ],
+                "summary": "return a page",
+                "description": "you should choose page_link or page_id or none of them",
+                "operationId": "return a page",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "page_slug": {
+                                        "type": "text"
+                                    },
+                                    "page_link": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/search": {
+            "post": {
+                "tags": [
+                    "search"
+                ],
+                "summary": "return search result",
+                "description": "return search result.\n      isFree and hasDiscount must be 0 or 1.\n      isEvent could be null, 0 or 1",
+                "operationId": "returnsearchresult",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "isFree",
+                                    "hasDiscount"
+                                ],
+                                "properties": {
+                                    "subject_id": {
+                                        "type": "integer"
+                                    },
+                                    "isFree": {
+                                        "type": "integer"
+                                    },
+                                    "hasDiscount": {
+                                        "type": "integer"
+                                    },
+                                    "keyword": {
+                                        "type": "string"
+                                    },
+                                    "isEvent": {
+                                        "type": "integer"
+                                    },
+                                    "type_id": {
+                                        "type": "integer"
+                                    },
+                                    "organizer_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/allServices": {
+            "get": {
+                "tags": [
+                    "services"
+                ],
+                "summary": "Get list of all services with plans and prices",
+                "description": "return list of services with plans and prices",
+                "operationId": "getAllServices",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/allSubjects": {
+            "get": {
+                "tags": [
+                    "subjects"
+                ],
+                "summary": "Get list of all subjects and sub-branches",
+                "description": "return list of subjects with their sub-branches",
+                "operationId": "getAllSubjects",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "slug": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/saveTransactions": {
+            "post": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "save transactions in DB",
+                "description": "save transactions in DB",
+                "operationId": "transactions",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "transaction_id",
+                                    "ref_id",
+                                    "tracking_code",
+                                    "ip",
+                                    "code",
+                                    "amount",
+                                    "invoice_id",
+                                    "gateway",
+                                    "result_message",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "transaction_id": {
+                                        "type": "integer"
+                                    },
+                                    "ref_id": {
+                                        "type": "text"
+                                    },
+                                    "tracking_code": {
+                                        "type": "text"
+                                    },
+                                    "ip": {
+                                        "type": "text"
+                                    },
+                                    "code": {
+                                        "type": "integer"
+                                    },
+                                    "amount": {
+                                        "type": "integer"
+                                    },
+                                    "invoice_id": {
+                                        "type": "integer"
+                                    },
+                                    "gateway": {
+                                        "type": "integer"
+                                    },
+                                    "result_message": {
+                                        "type": "text"
+                                    },
+                                    "status": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OTP sent Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/allTypes": {
+            "get": {
+                "tags": [
+                    "types"
+                ],
+                "summary": "Get list of all types",
+                "description": "return list of all types",
+                "operationId": "getAllTypes",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/add/favorite": {
+            "post": {
+                "tags": [
+                    "favorite"
+                ],
+                "summary": "add favorite to user account",
+                "description": "add favorite to user accounts",
+                "operationId": "addfavorite",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "covent_id"
+                                ],
+                                "properties": {
+                                    "covent_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/remove/favorite": {
+            "post": {
+                "tags": [
+                    "favorite"
+                ],
+                "summary": "remove favorite from user's account",
+                "description": "remove favorite from user's accounts",
+                "operationId": "removefavorite",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "covent_id"
+                                ],
+                                "properties": {
+                                    "covent_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/favorites": {
+            "get": {
+                "tags": [
+                    "favorite"
+                ],
+                "summary": "Get list of all user favorites",
+                "description": "return list of user favorites",
+                "operationId": "getUserFavorites",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": {
+        "passport": {
+            "type": "oauth2",
+            "description": "Laravel webinar passport oauth2 security.",
+            "in": "header",
+            "scheme": "https",
+            "flows": {
+                "password": {
+                    "authorizationUrl": "http://localhost/oauth/authorize",
+                    "tokenUrl": "http://localhost/oauth/token",
+                    "refreshUrl": "http://localhost/token/refresh",
+                    "scopes": []
+                }
+            }
+        }
+    }
+}
